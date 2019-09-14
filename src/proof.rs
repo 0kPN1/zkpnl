@@ -103,10 +103,14 @@ impl ZKPNLProof {
     }
 
     pub fn verify_sig(&self) -> Result<()> {
-        let pk = sig::get_pub_key_from_str(&self.ed25519_pub_key)?;
-        sig::verify_sigs_with_pk(&pk, &self.current_snapshot.msg.records)?;
-        println!("{}", "verify snapshot signature");
-        sig::verify_sig_with_pk(&pk, &self.current_snapshot)?;
+        if self.ed25519_pub_key.is_empty() {
+            println!("{}", "warning: no pub key found in proof, skip signature verification.");
+        } else {
+            let pk = sig::get_pub_key_from_str(&self.ed25519_pub_key)?;
+            sig::verify_sigs_with_pk(&pk, &self.current_snapshot.msg.records)?;
+            println!("{}", "verify snapshot signature");
+            sig::verify_sig_with_pk(&pk, &self.current_snapshot)?;
+        }
         Ok(())
     }
 }
