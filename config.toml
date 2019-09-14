@@ -1,0 +1,30 @@
+# Merlin transcript. see also https://merlin.cool/
+# Should stay the same throughout the committing and proving process.
+# Mistakenly altering it in the middle will result in verification failure.
+transcript = "Zero-knowledge proof of someone's P&L since some time"
+
+# Path to store all trade data.
+record_path = "data/record.json"
+
+# Path to store all market price data.
+price_path = "data/price.json"
+
+# Path to store all snapshot data of portfolio.
+album_path = "data/album.json"
+
+# Path to store generated proof file.
+proof_path = "proof/"
+
+# Due to program limitation, all non option instruments should be manually specified.
+bitmex = ["XBTUSD"]
+binance = ["ETHUSDT","EOSUSDT","LTCUSDT","XMRUSDT","BCHABCUSDT"]
+
+# Please specify a base64 ed25519 seed for message hash signing.
+# Leave it empty if you don't want it signed.
+ed25519_seed = ""
+
+# Affect time zone displayed in the generated proof.
+time_zone = 8
+
+# Affect log return calculation.
+capital = 3_000_000
