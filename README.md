@@ -14,4 +14,4 @@ USAGE:
     show snapshot
     export snapshot
     version
-where <start> and <end> is in format yyyyMMddHHmm
+where \<start\> and \<end\> is in format yyyyMMddHHmm
